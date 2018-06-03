@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="分享 - 烟感设备与平台的交互 下面这张图，是理解烟感设备（或者说广义的nb设备）与平台交互最重要的一个图，没有之一，对这个流程中的每一个点，都要做到非常清晰的了解   交互过程1. 设备数据上传OneNET 设备能够上传什么数据给OneNET？ 设备类型：1-烟感报警器 消息类型：1-报警；2-报警静音；4-低压；5-故障；7-正常待机 电池电压百分比 烟雾浓度百分比 蜂鸣器状态：0x1-静音；">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/06/03/分享 - 烟感设备与平台的交互/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分享 - 烟感设备与平台的交互 下面这张图，是理解烟感设备（或者说广义的nb设备）与平台交互最重要的一个图，没有之一，对这个流程中的每一个点，都要做到非常清晰的了解   交互过程1. 设备数据上传OneNET 设备能够上传什么数据给OneNET？ 设备类型：1-烟感报警器 消息类型：1-报警；2-报警静音；4-低压；5-故障；7-正常待机 电池电压百分比 烟雾浓度百分比 蜂鸣器状态：0x1-静音；">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p959nlzj2.bkt.clouddn.com/2018-05-31-01-51-03.png">
+<meta property="og:image" content="http://p959nlzj2.bkt.clouddn.com/2018-05-31-02-06-06.png">
+<meta property="og:image" content="http://p959nlzj2.bkt.clouddn.com/2018-05-31-02-34-38.png">
+<meta property="og:updated_time" content="2018-06-03T08:00:11.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="分享 - 烟感设备与平台的交互 下面这张图，是理解烟感设备（或者说广义的nb设备）与平台交互最重要的一个图，没有之一，对这个流程中的每一个点，都要做到非常清晰的了解   交互过程1. 设备数据上传OneNET 设备能够上传什么数据给OneNET？ 设备类型：1-烟感报警器 消息类型：1-报警；2-报警静音；4-低压；5-故障；7-正常待机 电池电压百分比 烟雾浓度百分比 蜂鸣器状态：0x1-静音；">
+<meta name="twitter:image" content="http://p959nlzj2.bkt.clouddn.com/2018-05-31-01-51-03.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,91 +158,212 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-分享 - 烟感设备与平台的交互" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="分享-烟感设备与平台的交互"><a href="#分享-烟感设备与平台的交互" class="headerlink" title="分享 - 烟感设备与平台的交互"></a>分享 - 烟感设备与平台的交互</h1><ul>
+<li>下面这张图，是理解烟感设备（或者说广义的nb设备）与平台交互最重要的一个图，没有之一，对这个流程中的每一个点，都要做到非常清晰的了解</li>
+</ul>
+<p><img src="http://p959nlzj2.bkt.clouddn.com/2018-05-31-01-51-03.png" alt="2018-05-31-01-51-03"></p>
+<h2 id="交互过程"><a href="#交互过程" class="headerlink" title="交互过程"></a>交互过程</h2><h3 id="1-设备数据上传OneNET"><a href="#1-设备数据上传OneNET" class="headerlink" title="1. 设备数据上传OneNET"></a>1. 设备数据上传OneNET</h3><ul>
+<li>设备能够上传什么数据给OneNET？<ul>
+<li>设备类型：1-烟感报警器</li>
+<li>消息类型：1-报警；2-报警静音；4-低压；5-故障；7-正常待机</li>
+<li>电池电压百分比</li>
+<li>烟雾浓度百分比</li>
+<li>蜂鸣器状态：0x1-静音；0x0-正常</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-OneNET数据推送至OneNET对接模块微服务"><a href="#2-OneNET数据推送至OneNET对接模块微服务" class="headerlink" title="2. OneNET数据推送至OneNET对接模块微服务"></a>2. OneNET数据推送至OneNET对接模块微服务</h3><ul>
+<li>OneNET如何知道这个上报的设备属于哪个产品？<ul>
+<li>答案：设备与产品的绑定关系在创建设备阶段完成</li>
+</ul>
+</li>
+<li>OneNET如何知道产品的消息往哪个地址推送？<ul>
+<li>答案：在创建产品阶段完成</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://p959nlzj2.bkt.clouddn.com/2018-05-31-02-06-06.png" alt="2018-05-31-02-06-06"></p>
+<h3 id="3-OneNET对接模块发布消息到Kafka"><a href="#3-OneNET对接模块发布消息到Kafka" class="headerlink" title="3. OneNET对接模块发布消息到Kafka"></a>3. OneNET对接模块发布消息到Kafka</h3><ul>
+<li><p>为什么需要Kafka？</p>
+<ul>
+<li>经典解释：相互解耦，解放上游，削峰填谷。</li>
+<li>如果没有卡夫卡，OneNET对接模块要将每一条消息传给业务管理后台，等待业务管理后台处理完成，再返回成功给OneNET。这种同步处理机制在高业务量的时候一定会成为性能瓶颈。</li>
+<li>卡夫卡在这里的作用类似于网络中的缓冲区，也类似于电路中的电杆。</li>
+</ul>
+</li>
+<li><p>OneNET对接模块怎么知道发布到Kafka的哪个topic</p>
+<ul>
+<li>业务管理后台在设置推送地址的时候已经指定：</li>
+<li><a href="http://ip:port/onenet-dock-mgmt-service/oneNet/monitor/${productTopic}/${productId}/{produxtToken}" target="_blank" rel="noopener">http://ip:port/onenet-dock-mgmt-service/oneNet/monitor/${productTopic}/${productId}/{produxtToken}</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-业务管理后台如何拿到Kafka中的数据"><a href="#4-业务管理后台如何拿到Kafka中的数据" class="headerlink" title="4. 业务管理后台如何拿到Kafka中的数据"></a>4. 业务管理后台如何拿到Kafka中的数据</h3><ul>
+<li>通过订阅卡夫卡中的topic</li>
+</ul>
+<h3 id="5-如何理解Kafka的消息发布、订阅模式"><a href="#5-如何理解Kafka的消息发布、订阅模式" class="headerlink" title="5. 如何理解Kafka的消息发布、订阅模式"></a>5. 如何理解Kafka的消息发布、订阅模式</h3><ul>
+<li>就像聊天室，聊天室中一个人说话，其他人都被广播了</li>
+<li>要了解卡夫卡的订阅，发布模式，最快的方法是自己搭环境做实验，教程在官网，我已经本地调通，非常简单：</li>
+<li><a href="http://kafka.apache.org/quickstart" target="_blank" rel="noopener">http://kafka.apache.org/quickstart</a></li>
+</ul>
+<h3 id="6-业务管理后台拿到数据之后，如何处理"><a href="#6-业务管理后台拿到数据之后，如何处理" class="headerlink" title="6. 业务管理后台拿到数据之后，如何处理"></a>6. 业务管理后台拿到数据之后，如何处理</h3><ul>
+<li>这块属于业务逻辑了，不管业务逻辑如何，最终肯定是要写入数据库</li>
+</ul>
+<h3 id="7-前台如何展示数据，尤其是实时展示？"><a href="#7-前台如何展示数据，尤其是实时展示？" class="headerlink" title="7. 前台如何展示数据，尤其是实时展示？"></a>7. 前台如何展示数据，尤其是实时展示？</h3><ul>
+<li>目前我们已经确定后台数据库中的数据是几乎实时的，烟感设备只要产生一条告警，后台数据库中就会增加这条告警</li>
+<li>前台是用了什么技术来做到实时显示数据库中的内容？表现在页面上，就是一个新告警过来，平台不用刷新页面就能显示？？这是如何实现的？？</li>
+</ul>
+<h3 id="8-为什么前台实时展示后台数据那么难？"><a href="#8-为什么前台实时展示后台数据那么难？" class="headerlink" title="8. 为什么前台实时展示后台数据那么难？"></a>8. 为什么前台实时展示后台数据那么难？</h3><ul>
+<li>因为前台查后台，是通过http协议，http协议的本质，就是一个单向性的协议，只能前台查后台，而不能反过来。然而前台并不知道后台什么时候更新了数据，怎么查，什么时候查，才能保证实时性？</li>
+</ul>
+<h3 id="9-回过头来看，为什么kafka可以实时发布消息给订阅者？"><a href="#9-回过头来看，为什么kafka可以实时发布消息给订阅者？" class="headerlink" title="9.回过头来看，为什么kafka可以实时发布消息给订阅者？"></a>9.回过头来看，为什么kafka可以实时发布消息给订阅者？</h3><ul>
+<li>Kafka和订阅者之间保持tcp长连接，用的是自定义的tcp基础上的专有协议交互，这个协议是双向的。</li>
+<li>从抓包结果可以看到，用的是基于TCP的Short message peer to peer协议：  </li>
+</ul>
+<p><img src="http://p959nlzj2.bkt.clouddn.com/2018-05-31-02-34-38.png" alt="2018-05-31-02-34-38"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/03/教程 - 安装nb-iot模拟器/" class="archive-article-date">
-  	<time datetime="2018-06-03T08:25:03.343Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/03/分享 - 烟感设备与平台的交互/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/03/分享 - 烟感设备与平台的交互/" class="archive-article-date">
-  	<time datetime="2018-06-03T08:25:03.341Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/26/hello-world/" class="archive-article-date">
-  	<time datetime="2018-05-26T02:41:13.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-26</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/26/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2018/06/03/教程 - 安装nb-iot模拟器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
+  
+    <a href="/2018/05/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -257,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
